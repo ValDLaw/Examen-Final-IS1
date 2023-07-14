@@ -4,17 +4,27 @@
 
 ## BilleteraUtec
 
+<div align="center">
+ <img src="frontend/src/assets/billeterautec.png" alt="Image" />
+</div>  
+
 Para correr el sistema, asegúrese de tener instaladas las librerías del archivo `requirements.txt`. Para ello puede ejecutar en su virtualenv lo siguiente:  
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Una vez realizado dicho paso, correr la aplicación usando:  
+Una vez realizado dicho paso, correr la aplicación (backend) usando:  
 
 ```bash
 python3 app.py
 ```
+
+Finalmente, para levantar el frontend, dentro de la carpeta `frontend` ejecutar:  
+
+```bash
+npm run serve
+```  
 
 ## Testing
 
@@ -28,7 +38,7 @@ python3 test.py
 
 Se requiere realizar un cambio en el software para que soporte un valor máximo de 200 soles a transferir por día.
 
-> Cambios en el código (Clases / Métodos)  
+### Cambios en el código (Clases / Métodos)  
 
 Para agregar el valor máximos de transferencia de 200 soles por día, realizaría cambios en las siguientes clases:  
 
@@ -40,7 +50,7 @@ Para agregar el valor máximos de transferencia de 200 soles por día, realizar�
 
 Luego de dichas modificaciones, si se intenta realizar una transferencia que exceda los 200 soles, se mostrará un mensaje de error correspondiente.  
 
-> Casos de prueba a adicionar  
+### Casos de prueba a adicionar  
 
 Al implementar las modificaciones para agregar el límite de transferencia diario de 200 soles, incorporaría casos de prueba adicionales para verificar el comportamiento del sistema.
 
@@ -52,10 +62,9 @@ Al implementar las modificaciones para agregar el límite de transferencia diari
    - Transferencia que excede el límite diario: Intentar realizar una transferencia mayor a 200 soles. Se debería mostrar un mensaje de error indicando que se ha excedido el límite de transferencia diario.
    - Transferencia que excede el límite diario acumulado: Realizar una transferencia de 160 soles y luego intentar realizar otra transferencia de 80 soles en el mismo día, lo que resultaría en un total de 240 soles transferidos en el mismo día. Se debería mostrar un mensaje de error indicando que se ha excedido el límite de transferencia diario.  
 
-> Riesgos  
+### Riesgos  
 
 Algunos posibles riesgos asociados con la implementación de este cambio en el software son:  
-
 1. Interrupción de la funcionalidad existente: Si los cambios realizados afectan áreas críticas del sistema o rompen la integración con otros componentes, existe el riesgo de interrumpir la funcionalidad existente. Esto puede resultar en errores, fallos del sistema o una experiencia deficiente para los usuarios. Por ejemplo, al agregar la validación del límite de transferencia diario, hay la posibilidad de realizar cambios en el flujo existente del endpoint `/billetera-utec/pagar`. En base a ello, aparece el riesgo de que estos cambios afecten negativamente otros aspectos del flujo, como la actualización del saldo de las cuentas involucradas o la generación de registros de transacciones.  
 
 2. Problemas de rendimiento: Los cambios en el código o en la lógica de negocio pueden tener un impacto en el rendimiento del sistema. Si no se optimizan adecuadamente, los cambios podrían resultar en un rendimiento más lento, tiempos de respuesta más largos o un mayor consumo de recursos.  

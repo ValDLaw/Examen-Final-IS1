@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from datetime import date
 
 app = Flask(__name__)
+CORS(app)
 
 class Cuenta:
     def __init__(self, numero, nombre, saldo, contactos):
